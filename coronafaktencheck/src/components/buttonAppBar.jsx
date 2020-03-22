@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 import colors from '../styles/colors'
+import Logo from '../images/Logo_Hackathon.png';
 
 
 const useStyles = makeStyles(theme => ({
@@ -24,6 +25,10 @@ const useStyles = makeStyles(theme => ({
   },
   backgroundColor: {
     backgroundColor: 'white'
+  },
+  imageSize: {
+    width: '60px',
+    margin: '20px'
   }
 }));
 
@@ -34,10 +39,11 @@ export const ButtonAppBar = () => {
     <div className={classes.root}>
       <AppBar className={classes.backgroundColor} position="static">
         <Toolbar>
+          <img className={classes.imageSize} src={Logo} alt="coronafaktenchecker"/>
           <Typography variant="h6" className={classes.title}>
             <Link to="/" className={classes.linkStyle}>coronafaktencheck</Link>
           </Typography>
-          <Link to="/" className={classes.linkStyle}><Button color="inherit">Home</Button></Link>
+          {/* <Link to="/" className={classes.linkStyle}><Button color="inherit">Home</Button></Link> */}
           {/* <Link to="/tweets" className={classes.linkStyle}><Button color="inherit">Tweets</Button></Link> */}
         </Toolbar>
       </AppBar>

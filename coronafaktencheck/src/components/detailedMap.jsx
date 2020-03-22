@@ -4,7 +4,7 @@ import { homeSearchInputStyles } from '../styles/homeSearchInputStyles';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-import {fakeData , AccesTokenMapBox , initialData} from '../data/Data'
+import { AccesTokenMapBox , initialData} from '../data/Data'
 import {fakeNewsData} from '../data/fake-news-mock-data' 
 
 
@@ -14,11 +14,12 @@ const styles = {
   position: "absolute"
 };
 
+const formatPercentage = ((num)=> (num * 100).toFixed(2));
+
 //Render component
 export const DetailedMap = () => {
 
     console.log(fakeNewsData);
-    console.log(fakeData);
 
 mapboxgl.accessToken = AccesTokenMapBox;
 
@@ -58,17 +59,32 @@ mapboxgl.accessToken = AccesTokenMapBox;
       setMap(map);
       map.resize();
       map.addControl(new mapboxgl.NavigationControl());
-
+    
       const locations = 
         {
           type: 'FeatureCollection',
-          features: locationList.map(location => {
+          features: fakeNewsData.map(fakeNews => {
+            console.log(fakeNews);
             return{
               type:"Feature",
+              properties: {
+                description:`
+                <h2>Fake News:</h2>
+                <h3><q>${fakeNews.text}</q></h3>
+                <p>Es handelt sich hierbei zu <b style="color: #ff9046"> ${formatPercentage(fakeNews.classification.fake)} % </b> um Fake News</p>
+                `    
+                },
               geometry: {
                   type: 'Point',
-                  coordinates: formatGeoLocation(location) 
+                  coordinates: formatGeoLocation(fakeNews.derived) 
               },
+            //   "layout": {
+            //     "text-field": "Hey",
+            //     "text-font": [
+            //       "Open Sans Semibold",
+            //       "Arial Unicode MS Bold"
+            //     ]
+            //   }
             }
           })
         }
@@ -95,7 +111,7 @@ mapboxgl.accessToken = AccesTokenMapBox;
       
         map.on("mouseenter", 'point', (e) => {
           const coordinates = e.features[0].geometry.coordinates.slice();
-          // var description = e.features[0].properties.description;
+          const description = e.features[0].properties.description;
 
           map.getCanvas().style.cursor = "pointer";
       
@@ -109,10 +125,7 @@ mapboxgl.accessToken = AccesTokenMapBox;
           
           popup
           .setLngLat(coordinates)
-          .setHTML(
-            `<h2>Atem anhalten als Selbsttest #covid19</h2>
-            <p>Diese Nachrichten sind zu 88% Fake News</p>
-            `)
+          .setHTML(description)
             // .setText()
             .addTo(map);
         });

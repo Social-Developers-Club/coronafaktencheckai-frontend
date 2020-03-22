@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
-import {Input } from '@material-ui/core';
+import { Input } from '@material-ui/core';
 import { homeSearchInputStyles , StyledButton} from '../styles/homeSearchInputStyles';
 import { DetailedMap  } from './detailedMap';
+import { fakeNewsData } from '../data/fake-news-mock-data' 
+
 
 import colors from '../styles/colors'
 

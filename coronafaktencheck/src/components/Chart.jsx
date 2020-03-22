@@ -7,8 +7,8 @@ import colors from '../styles/colors'
 export const PieChart = (props) => {
       const chartRef = useRef();
       console.log(props);
-      const news = props.news;
-      const percentage = props.percentage;
+      const {real, fake, unknown} = props;
+    //   const percentage = props.percentage;
 
       const [canvasSeizes] = useState({
         height: '250px',
@@ -17,12 +17,12 @@ export const PieChart = (props) => {
 
       const data = {
         datasets: [{
-          data: [percentage, (100-percentage)],
-          backgroundColor: [colors.orange , 'transparent']
+          data: [real, fake , unknown],
+          backgroundColor: [colors.darkColor , '#ff9f31' , '#b9a89b']
         }],
     
         // These labels appear in the legend and in the tooltips when hovering different arcs
-        labels: [news, ''],
+        labels: ['Korrekte News', 'Fake News', 'Keine Zuordnung'],
          };
 
          const options = {

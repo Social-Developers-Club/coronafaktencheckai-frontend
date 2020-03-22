@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { DetailedMap  } from './detailedMap';
@@ -34,7 +34,18 @@ console.log(fakeNewsData);
   const twitterId = twitterlink.slice(-19)
   console.log(twitterId);
 
-  
+  const [newsData, setNewsData] = useState([]);
+
+  useEffect(()=> {
+      // Fetching data 
+      fetch(twitterId)
+        .then(response => response.json())
+        .then(data =>
+          setNewsData({data})
+        )
+        // Catch any errors we hit and update the app
+        .catch(error => console.log(error));
+  })
 
   return (
     <div className={classes.wrapper}>

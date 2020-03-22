@@ -18,15 +18,7 @@ const formatPercentage = ((num)=> (num * 100).toFixed(2));
 //Map component
 export const DetailedMap = () => {
 
-    console.log(fakeNewsData);
-
 mapboxgl.accessToken = AccesTokenMapBox;
-
-  /*Format coordinates for map displaying*/
-  const locationList = fakeNewsData.map( fake => 
-    fake.derived);
-
-  console.log(locationList);
 
   const formatGeoLocation = (locationCoordinates => {
     return(

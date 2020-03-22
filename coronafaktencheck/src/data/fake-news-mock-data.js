@@ -2,6 +2,7 @@
 export const fakeNewsData = 
     [
         {
+            "id": "1241804756147986432",
           "text": "Dort ruft eine Frau zu Hamsterkäufen auf. „Bevorratet euch“, sagt sie. Aus „sicherer Quelle“ wisse sie, dass der „Katastrophenschutz“ am Montag alle Aldi-Märkte schließen werde. Das sei den Mitarbeitern mitgeteilt worden.",
           "classification": {
             "fake": 0.8183120303589378,

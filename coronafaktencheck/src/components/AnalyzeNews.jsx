@@ -24,14 +24,15 @@ export const AnalyzeNews = (props) => {
 console.log(fakeNewsData);
 
   const classes = analyzeMenuStyles();
-  console.log(props.location.state);
-
   const {news} = props.location.state;
-  console.log(news);
-  const newsCheck = news.toLowerCase().split(" ").join("");
-  console.log(newsCheck);
+
+  // const newsCheck = news.toLowerCase().split(" ").join("");
 
   const formatPercentage = ((num)=> (num * 100).toFixed(2));
+
+  const twitterlink = "https://twitter.com/linuscodes/status/1241804756147986432"
+  const twitterId = twitterlink.slice(-19)
+  console.log(twitterId);
 
   
 
@@ -40,8 +41,9 @@ console.log(fakeNewsData);
       <div className={classes.containerPieChart}>
       <img className={classesImage.logoStyle} src={Logo} alt="coronafaktenchecker"/>
       {fakeNewsData.map((news => {
-        const compareNewsCheck = news.text.toLowerCase().split(" ").join("");
-        if(newsCheck === compareNewsCheck){
+        {/* const compareNewsCheck = news.text.toLowerCase().split(" ").join(""); */}
+        const newsId = news.id
+        if(twitterId === newsId){
 
           let {fake, unknown, real} = news.classification;
           fake = formatPercentage(fake);

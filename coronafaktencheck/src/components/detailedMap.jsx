@@ -5,6 +5,7 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import {fakeData , AccesTokenMapBox , initialData} from '../data/Data'
+import {fakeNewsData} from '../data/fake-news-mock-data' 
 
 
 const styles = {
@@ -16,10 +17,17 @@ const styles = {
 //Render component
 export const DetailedMap = () => {
 
+    console.log(fakeNewsData);
+    console.log(fakeData);
+
 mapboxgl.accessToken = AccesTokenMapBox;
 
   /*Format coordinates for map displaying*/
-  const locationList = Object.values(fakeData);
+  const locationList = fakeNewsData.map( fake => 
+    fake.derived);
+
+  console.log(locationList);
+
   const formatGeoLocation = (locationCoordinates => {
     return(
       [
@@ -60,7 +68,7 @@ mapboxgl.accessToken = AccesTokenMapBox;
               geometry: {
                   type: 'Point',
                   coordinates: formatGeoLocation(location) 
-              }
+              },
             }
           })
         }
@@ -86,7 +94,7 @@ mapboxgl.accessToken = AccesTokenMapBox;
         const popup = new mapboxgl.Popup({ closeOnClick: false ,closeButton: false});
       
         map.on("mouseenter", 'point', (e) => {
-          var coordinates = e.features[0].geometry.coordinates.slice();
+          const coordinates = e.features[0].geometry.coordinates.slice();
           // var description = e.features[0].properties.description;
 
           map.getCanvas().style.cursor = "pointer";
@@ -102,9 +110,10 @@ mapboxgl.accessToken = AccesTokenMapBox;
           popup
           .setLngLat(coordinates)
           .setHTML(
-            `<h1>Fake News!</h1>
-            <p>Coronavirus lorem ipsum bla </p>
+            `<h2>Atem anhalten als Selbsttest #covid19</h2>
+            <p>Diese Nachrichten sind zu 88% Fake News</p>
             `)
+            // .setText()
             .addTo(map);
         });
 

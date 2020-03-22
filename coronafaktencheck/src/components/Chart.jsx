@@ -17,27 +17,18 @@ export const PieChart = (props) => {
 
       const data = {
         datasets: [{
-          data: percentage,
-          backgroundColor: colors.orange
+          data: [percentage, (100-percentage)],
+          backgroundColor: [colors.orange , 'transparent']
         }],
     
         // These labels appear in the legend and in the tooltips when hovering different arcs
-        labels: [
-          news,
-          ],
+        labels: [news, ''],
          };
 
          const options = {
           cutoutPercentage: 70,
-          rotation: -0.4 * Math.PI,
-          animation: {
-            duration: 2 // general animation time
-        },
-          hover: {
-              animationDuration: 0 // duration of animations when hovering an item
-        },
-          responsiveAnimationDuration: 0 // animation duration after a resize
-         }
+          rotation: -0.4 * Math.PI
+        }
 
       useEffect(()=> 
       {
@@ -57,7 +48,6 @@ export const PieChart = (props) => {
 					width: '100%',
 					height: '100%',
 				}} />
-        <p>{"Diese Nachrichten sind zu " + percentage + " % FAKE NEWS"}</p>
       </div>
      )
 }

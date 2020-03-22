@@ -5,12 +5,12 @@ import { DetailedMap  } from './detailedMap';
 import { PieChart  } from './Chart.jsx';
 
 
-import { homeSearchInputStyles , StyledButton} from '../styles/homeSearchInputStyles';
+import { analyzeMenuStyles , StyledButton} from '../styles/analyzeMenuStyle';
 
 import colors from '../styles/colors'
 
 export const AnalyzeNews = (props) => {
-  const classes = homeSearchInputStyles();
+  const classes = analyzeMenuStyles();
   console.log(props.location.state);
 
   const {news, percentage} = props.location.state;
@@ -20,11 +20,10 @@ export const AnalyzeNews = (props) => {
   
   return (
     <div className={classes.wrapper}>
-      <div className={classes.containerInput}>
-     <PieChart percentage={percentage} news={news} style={{
-					width: '200px',
-				}}/>
-    </div>
+      <div className={classes.containerPieChart}>
+        <PieChart percentage={percentage} news={news} style={{width: '200px'}}/>
+        <p>{"Diese Nachrichten sind zu "} <b style={{fontSize: '20px'}}>{Math.round(percentage)}</b> {" % Fake News"}</p>
+      </div>
       {/* <div className={classes.containerMap}>
         <DetailedMap/>
       </div> */}

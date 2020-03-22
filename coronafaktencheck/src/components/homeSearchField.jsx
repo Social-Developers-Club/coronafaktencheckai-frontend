@@ -26,8 +26,9 @@ export const HomeSearchField = () => {
         to={{
           pathname: "/analyze",
           state: {
-              news: input.search,
-              percentage: '70'
+            //   news: input.search,
+            news: "Atem anhalten als Selbsttest #covid19",
+            percentage: '88.472'
             }
         }} 
         className={classes.linkStyleInput}

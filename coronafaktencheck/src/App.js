@@ -16,7 +16,7 @@ function App() {
         <Router>
         <ButtonAppBar />
           <Route path="/" exact component={HomeSearchField} />
-          <Route path="/tweets" exact component={RealTimeTweets} />
+          {/* <Route path="/tweets" exact component={RealTimeTweets} /> */}
           <Route path="/analyze" exacot component={AnalyzeNews} />
           {/* <Route component={ErrorPage} /> */}
         </Router>

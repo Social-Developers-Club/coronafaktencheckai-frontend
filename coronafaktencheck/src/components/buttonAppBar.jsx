@@ -35,10 +35,10 @@ export const ButtonAppBar = () => {
       <AppBar className={classes.backgroundColor} position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <Link to="/" className={classes.linkStyle}>coronafaktencheck.ai</Link>
+            <Link to="/" className={classes.linkStyle}>coronafaktencheck</Link>
           </Typography>
           <Link to="/" className={classes.linkStyle}><Button color="inherit">Home</Button></Link>
-          <Link to="/tweets" className={classes.linkStyle}><Button color="inherit">Tweets</Button></Link>
+          {/* <Link to="/tweets" className={classes.linkStyle}><Button color="inherit">Tweets</Button></Link> */}
         </Toolbar>
       </AppBar>
     </div>

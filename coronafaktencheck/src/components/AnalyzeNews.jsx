@@ -15,7 +15,8 @@ const useStyles = makeStyles(theme => ({
     margin: '20px',
     position: 'relative',
     display: 'inline-block',
-    transform: 'translateY(174%)'
+    transform: 'translateY(174%)',
+    zIndex: '-1'
   }
 }));
 
@@ -38,7 +39,7 @@ console.log(fakeNewsData);
 
   useEffect(()=> {
       // Fetching data 
-      fetch(twitterId)
+      fetch(`http://127.0.0.1:8000/twitter_post/${twitterId}`)
         .then(response => response.json())
         .then(data =>
           setNewsData({data})

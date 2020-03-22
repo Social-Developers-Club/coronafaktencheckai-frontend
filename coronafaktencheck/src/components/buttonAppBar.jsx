@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 import colors from '../styles/colors'
 import Logo from '../images/Logo_Hackathon.png';
@@ -18,6 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    fontSize: '2em'
   },
   linkStyle: {
     color: colors.darkColor,
@@ -40,11 +40,9 @@ export const ButtonAppBar = () => {
       <AppBar className={classes.backgroundColor} position="static">
         <Toolbar>
           <img className={classes.imageSize} src={Logo} alt="coronafaktenchecker"/>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h1" className={classes.title}>
             <Link to="/" className={classes.linkStyle}>coronafaktencheck</Link>
           </Typography>
-          {/* <Link to="/" className={classes.linkStyle}><Button color="inherit">Home</Button></Link> */}
-          {/* <Link to="/tweets" className={classes.linkStyle}><Button color="inherit">Tweets</Button></Link> */}
         </Toolbar>
       </AppBar>
     </div>

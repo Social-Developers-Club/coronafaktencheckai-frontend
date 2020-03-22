@@ -1,5 +1,4 @@
 import React, { useState , useEffect, useRef} from 'react';
-import { homeSearchInputStyles } from '../styles/homeSearchInputStyles';
 
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -16,7 +15,7 @@ const styles = {
 
 const formatPercentage = ((num)=> (num * 100).toFixed(2));
 
-//Render component
+//Map component
 export const DetailedMap = () => {
 
     console.log(fakeNewsData);
@@ -78,13 +77,6 @@ mapboxgl.accessToken = AccesTokenMapBox;
                   type: 'Point',
                   coordinates: formatGeoLocation(fakeNews.derived) 
               },
-            //   "layout": {
-            //     "text-field": "Hey",
-            //     "text-font": [
-            //       "Open Sans Semibold",
-            //       "Arial Unicode MS Bold"
-            //     ]
-            //   }
             }
           })
         }

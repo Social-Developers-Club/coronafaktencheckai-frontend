@@ -1,4 +1,4 @@
-import React, { useState , useEffect, useRef} from 'react';
+import React, { useEffect, useRef} from 'react';
 import Chart from 'chart.js';
 
 import colors from '../styles/colors'
@@ -6,19 +6,12 @@ import colors from '../styles/colors'
 
 export const PieChart = (props) => {
       const chartRef = useRef();
-      console.log(props);
       const {real, fake, unknown} = props;
-    //   const percentage = props.percentage;
-
-      const [canvasSeizes] = useState({
-        height: '250px',
-        width: '250px'
-      })
 
       const data = {
         datasets: [{
           data: [real, fake , unknown],
-          backgroundColor: [colors.darkColor , '#ff9f31' , '#b9a89b']
+          backgroundColor: [colors.darkColor , colors.fakeOrange , colors.unknownColor]
         }],
     
         // These labels appear in the legend and in the tooltips when hovering different arcs

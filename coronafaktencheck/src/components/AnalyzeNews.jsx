@@ -22,7 +22,6 @@ const useStyles = makeStyles(theme => ({
 
 export const AnalyzeNews = (props) => {
   const classesImage = useStyles();
-console.log(fakeNewsData);
 
   const classes = analyzeMenuStyles();
   const {news} = props.location.state;
@@ -33,7 +32,6 @@ console.log(fakeNewsData);
 
   const twitterlink = "https://twitter.com/linuscodes/status/1241804756147986432"
   const twitterId = twitterlink.slice(-19)
-  console.log(twitterId);
 
   const [newsData, setNewsData] = useState([]);
 

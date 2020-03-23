@@ -55,7 +55,6 @@ mapboxgl.accessToken = AccesTokenMapBox;
         {
           type: 'FeatureCollection',
           features: fakeNewsData.map(fakeNews => {
-            console.log(fakeNews);
             return{
               type:"Feature",
               properties: {

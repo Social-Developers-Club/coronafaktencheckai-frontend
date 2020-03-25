@@ -1,12 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
-import { DetailedMap  } from './detailedMap';
+// import { DetailedMap  } from './detailedMap';
 import { PieChart  } from './Chart.jsx';
 
 
 import { analyzeMenuStyles } from '../styles/analyzeMenuStyle';
-import { fakeNewsData } from '../data/fake-news-mock-data' 
+// import { fakeNewsData } from '../data/fake-news-mock-data' 
 import Logo from '../images/Logo_Hackathon.png';
 
 const useStyles = makeStyles(theme => ({
@@ -30,53 +30,58 @@ export const AnalyzeNews = (props) => {
 
   const formatPercentage = ((num)=> (num * 100).toFixed(2));
 
-  const twitterlink = "https://twitter.com/linuscodes/status/1241804756147986432"
-  const twitterId = twitterlink.slice(-19)
+  const twitterlink = news;
+  const twitterId = twitterlink.slice(-19);
 
-  const [newsData, setNewsData] = useState([]);
+  const [newsData, setNewsData] = useState({
+    data: [],
+    real: Number,
+    fake: Number,
+    unknown: Number,
+  });
+ 
 
   useEffect(()=> {
       // Fetching data 
       fetch(`http://127.0.0.1:8000/twitter_post/${twitterId}`)
         .then(response => response.json())
         .then(data =>
-          setNewsData({data})
+          setNewsData({
+            data,
+            real: formatPercentage(data.classification.real),
+            fake: formatPercentage(data.classification.fake),
+            unknown: formatPercentage(data.classification.unknown),
+          })
         )
         // Catch any errors we hit and update the app
         .catch(error => console.log(error));
-  })
+  }, [twitterId])
 
   return (
     <div className={classes.wrapper}>
       <div className={classes.containerPieChart}>
       <img className={classesImage.logoStyle} src={Logo} alt="coronafaktenchecker"/>
-      {fakeNewsData.map((news => {
+      {/* {fakeNewsData.map((news => { */}
         {/* const compareNewsCheck = news.text.toLowerCase().split(" ").join(""); */}
-        const newsId = news.id
-        if(twitterId === newsId){
-
-          let {fake, unknown, real} = news.classification;
-          fake = formatPercentage(fake);
-          unknown = formatPercentage(unknown);
-          real = formatPercentage(real);
-
-          return(
+        {/* const newsId = news.id */}
+        {/* if(twitterId === newsId){ */}
+          {/* return( */}
             <Fragment>
-              <PieChart real={real} fake={fake} unknown={unknown} style={{width: '200px'}}/>
-              {(Math.round(fake) > 0 && 
-                <p>{"Diese Nachrichten sind zu "} <b style={{fontSize: '20px'}}>{Math.round(fake)}</b> {" % Fake News " } <br/> </p>
+              <PieChart real={newsData.real} fake={newsData.fake} unknown={newsData.unknown} style={{width: '800px'}}/>
+              {(Math.round(newsData.fake) > 0 && 
+                <p>{"Diese Nachrichten sind zu "} <b style={{fontSize: '20px'}}>{Math.round(newsData.fake)}</b> {" % Fake News " } <br/> </p>
               )}
-              {(Math.round(real) > 0 &&
-                <p>{"...und zu "} <b style={{fontSize: '20px'}}>{Math.round(real)}</b> {" % wahr."}</p>
+              {(Math.round(newsData.real) > 0 &&
+                <p>{"...und zu "} <b style={{fontSize: '20px'}}>{Math.round(newsData.real)}</b> {" % wahr."}</p>
               )}
-              {(Math.round(unknown) > 0 &&
-                <p>{"Diese Nachrichten sind zu "} <b style={{fontSize: '20px'}}>{Math.round(unknown)}</b> {" % nicht zuordbar."}</p>
+              {(Math.round(newsData.unknown) > 0 &&
+                <p>{"Diese Nachrichten sind zu "} <b style={{fontSize: '20px'}}>{Math.round(newsData.unknown)}</b> {" % nicht zuordbar."}</p>
               )}
             </Fragment>
-          );
+          {/* );
         }
       }))
-      }
+      } */}
       </div>
       {/* <div className={classes.containerMap}>
         <DetailedMap/>

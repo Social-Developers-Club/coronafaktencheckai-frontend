@@ -16,11 +16,14 @@ export const PieChart = (props) => {
     
         // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: ['Korrekte News', 'Fake News', 'Keine Zuordnung'],
-         };
+      };
 
-         const options = {
+        const options = {
           cutoutPercentage: 70,
-          rotation: -0.4 * Math.PI
+          rotation: -0.4 * Math.PI,
+          aspectRatio: 2,
+          //   responsive: true,
+          maintainAspectRatio: true,
         }
 
       useEffect(()=> 
@@ -35,12 +38,11 @@ export const PieChart = (props) => {
   
       return (
       <div>
-        <canvas 
-        ref={el => (chartRef.current = el)} 
-				style={{
-					width: '100%',
-					height: '100%',
-				}} />
+        <canvas ref={el => (chartRef.current = el)} 
+            style={{
+                height: '300px',
+            }} 
+        />
       </div>
      )
 }

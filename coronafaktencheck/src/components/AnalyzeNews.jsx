@@ -43,7 +43,7 @@ export const AnalyzeNews = (props) => {
 
   useEffect(()=> {
       // Fetching data 
-      fetch(`http://127.0.0.1:8000/twitter_post/${twitterId}`)
+      fetch(`https://coronafaktencheck.de/twitter_post/${twitterId}`)
         .then(response => response.json())
         .then(data =>
           setNewsData({

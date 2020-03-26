@@ -2838,34 +2838,6 @@ export const fakeNewsData =
           }
         },
         {
-          "text": "Papst und zwei Assistenten haben sich mit Corona infiziert.",
-          "classification": {
-            "fake": 0.6611484969316408,
-            "unknown": 0.0,
-            "real": 0.3388515030683592
-          },
-          "evidence": [],
-          "derived": {
-            "locations": [
-              {
-                "country": "Deutschland",
-                "country_code": "DE",
-                "locality": "Deutschland",
-                "region": "Bundesland",
-                "sub_region": "Landkreis",
-                "full_name": "Kaiserslautern, Rheinland-Pfalz, 67655, Deutschland",
-                "geo": {
-                  "coordinates": [
-                    49.4432174,
-                    7.7689951
-                  ],
-                  "type": "point"
-                }
-              }
-            ]
-          }
-        },
-        {
           "text": "in Vitamin-D-Mangel mache Menschen anfälliger für das neuartige Coronavirus, die Ausbreitung von Corona kann daher mit der Gabe von Vitamin D bekämpft werden.",
           "classification": {
             "fake": 0.6229242017080793,
@@ -2922,62 +2894,6 @@ export const fakeNewsData =
           }
         },
         {
-          "text": "zwei Corona-Infizierte in Weiden",
-          "classification": {
-            "fake": 0.5554280450618603,
-            "unknown": 0.0,
-            "real": 0.4445719549381397
-          },
-          "evidence": [],
-          "derived": {
-            "locations": [
-              {
-                "country": "Deutschland",
-                "country_code": "DE",
-                "locality": "Deutschland",
-                "region": "Bundesland",
-                "sub_region": "Landkreis",
-                "full_name": "Heinsberg, Kreis Heinsberg, Nordrhein-Westfalen, 52525, Deutschland",
-                "geo": {
-                  "coordinates": [
-                    51.0654268,
-                    6.0984461
-                  ],
-                  "type": "point"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "text": "Die Astrid-Lindgren Grundschule hat wegen des Coronavirus geschlossen. ",
-          "classification": {
-            "fake": 0.699250253215571,
-            "unknown": 0.0,
-            "real": 0.300749746784429
-          },
-          "evidence": [],
-          "derived": {
-            "locations": [
-              {
-                "country": "Deutschland",
-                "country_code": "DE",
-                "locality": "Deutschland",
-                "region": "Bundesland",
-                "sub_region": "Landkreis",
-                "full_name": "Bremen, Deutschland",
-                "geo": {
-                  "coordinates": [
-                    53.0758196,
-                    8.8071646
-                  ],
-                  "type": "point"
-                }
-              }
-            ]
-          }
-        },
-        {
           "text": "Medien und Regierung würden wichtige Informationen zum Coronavirus zurückhalten, die \"Coronavirus-Pandemie\" ist weitaus schlimmer als berichtet.",
           "classification": {
             "fake": 0.9920111279812394,
@@ -3026,34 +2942,6 @@ export const fakeNewsData =
                   "coordinates": [
                     50.938361,
                     6.959974
-                  ],
-                  "type": "point"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "text": "Corona-Infektion in Passau",
-          "classification": {
-            "fake": 0.8160943380295003,
-            "unknown": 0.0,
-            "real": 0.18390566197049973
-          },
-          "evidence": [],
-          "derived": {
-            "locations": [
-              {
-                "country": "Deutschland",
-                "country_code": "DE",
-                "locality": "Deutschland",
-                "region": "Bundesland",
-                "sub_region": "Landkreis",
-                "full_name": "München, Bayern, Deutschland",
-                "geo": {
-                  "coordinates": [
-                    48.1371079,
-                    11.5753822
                   ],
                   "type": "point"
                 }
@@ -3138,34 +3026,6 @@ export const fakeNewsData =
                   "coordinates": [
                     49.872775,
                     8.651177
-                  ],
-                  "type": "point"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "text": "Grundschulen in Starnberg wurden wegen des Virus geschlossen",
-          "classification": {
-            "fake": 0.6289380993087534,
-            "unknown": 0.0,
-            "real": 0.37106190069124656
-          },
-          "evidence": [],
-          "derived": {
-            "locations": [
-              {
-                "country": "Deutschland",
-                "country_code": "DE",
-                "locality": "Deutschland",
-                "region": "Bundesland",
-                "sub_region": "Landkreis",
-                "full_name": "Stuttgart, Baden-Württemberg, 70173, Deutschland",
-                "geo": {
-                  "coordinates": [
-                    48.7784485,
-                    9.1800132
                   ],
                   "type": "point"
                 }

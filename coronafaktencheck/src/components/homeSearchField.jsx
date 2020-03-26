@@ -26,11 +26,11 @@ export const HomeSearchField = () => {
           Wir arbeiten derzeit weiterhin fleißig an der Weiterentwicklung.
           {' '}
           <br/>
-          <b className={classes.disclaimerHighlight}>STAY TUNED!</b> 
+          <b className={classes.disclaimerHighlight}>STAY TUNED!</b>
         </p>
 
       <div className={classes.containerInput}>
-        <Input className={clsx(classes.focused, classes.fullWidth)} onChange={handleChange} name="search" placeholder="Get your news checked" value={input.search} />
+        <Input className={clsx(classes.focused, classes.fullWidth)} onChange={handleChange} name="search" placeholder="Bitte Link zu einem Tweet hier einfügen" value={input.search} />
         <Link 
         to={{
           pathname: "/analyze",

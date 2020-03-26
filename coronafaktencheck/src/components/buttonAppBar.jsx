@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
-    fontSize: '2em'
+    fontSize: '2em',
   },
   linkStyle: {
     color: colors.darkColor,

@@ -5,6 +5,8 @@ import { Input } from '@material-ui/core';
 import { homeSearchInputStyles , StyledButton} from '../styles/homeSearchInputStyles';
 import { DetailedMap  } from './detailedMap';
 
+import clsx from 'clsx'
+
 export const HomeSearchField = () => {
   const classes = homeSearchInputStyles();
 
@@ -18,8 +20,17 @@ export const HomeSearchField = () => {
   
   return (
     <div className={classes.wrapper}>
+        <p className={classes.disclaimer}>
+          Bei dieser Website handelt es sich um unseren ersten Prototypen aus dem <b className={classes.disclaimerHighlight}>#WirVsVirus Hackathon</b>. 
+          Für die Korrektheit der Klassifizierung übernehmen wir keine Verantwortung. 
+          Wir arbeiten derzeit weiterhin fleißig an der Weiterentwicklung.
+          {' '}
+          <br/>
+          <b className={classes.disclaimerHighlight}>STAY TUNED!</b> 
+        </p>
+
       <div className={classes.containerInput}>
-        <Input className={classes.focused , classes.fullWidth} onChange={handleChange} name="search" placeholder="Get your news checked" value={input.search} />
+        <Input className={clsx(classes.focused, classes.fullWidth)} onChange={handleChange} name="search" placeholder="Get your news checked" value={input.search} />
         <Link 
         to={{
           pathname: "/analyze",

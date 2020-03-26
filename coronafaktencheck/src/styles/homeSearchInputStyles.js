@@ -8,35 +8,44 @@ export const homeSearchInputStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     width: "100%",
-    height: "100vh",
-    justifyContent: "center",
-    alignItems: "center",
+    height: "100%",
   },
   containerInput: {
     display: "flex",
-    height: "40%",
-    width: "100%",
+    height: "30%",
+    padding: '5%',
     color: colors.bright,
     justifyContent: "center",
-    alignItems: "center",
   },
   containerMap: {
     display: "flex",
-    height: "60%",
+    height: "40%",
     width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
   },
   focused: {
     color: colors.darkColor,
   },
   fullWidth: {
-    width: '20%',
+    width: '30%',
   },
   linkStyleInput: {
     color: colors.bright,
     textDecoration: 'none'
   },
+  disclaimer: {
+    width: '30%',
+    height: '30%',
+    fontSize: '1.2rem',
+    justifyContent: "center",
+    alignItems: "center",
+    margin: '2% auto',
+    paddingTop: '25px',
+    lineHeight: '1.5rem'
+  },
+  disclaimerHighlight: {
+    textTransform: 'uppercase',
+    fontWeight: 'bold'
+  }
 });
 
 export const StyledButton = withStyles({

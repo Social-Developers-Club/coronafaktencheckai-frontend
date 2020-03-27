@@ -23,7 +23,8 @@ const useStyles = makeStyles(theme => ({
   },
   footer_link: {
     color: colors.darkColor,
-    textDecoration: 'none'
+    textDecoration: 'none',
+    marginLeft: '30px'
   },
   footer_imageSize: {
     width: '40px',
@@ -39,7 +40,10 @@ export const Footer = () => {
     <footer className={classes.footer}>
         <img className={classes.footer_imageSize} src={Logo} alt="coronafaktenchecker" position="static" />
         <Typography variant="h1" className={classes.footer_text}>
-          CoronaFaktenCheck 2020. <a className={classes.footer_link} href="./impressum.html">Impressum</a>
+          CoronaFaktenCheck 2020. 
+          <a className={classes.footer_link} href="./impressum.html">Impressum</a>
+          <a className={classes.footer_link} href="./datenschutz.html">Datenschutzerklärung</a>
+          <a className={classes.footer_link} href="mailto:coronafaktencheck.de">Kontakt</a>
         </Typography>
     </footer>
   );

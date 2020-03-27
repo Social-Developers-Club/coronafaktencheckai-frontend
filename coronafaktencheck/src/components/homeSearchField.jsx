@@ -40,7 +40,7 @@ export const HomeSearchField = () => {
         }} 
         className={classes.linkStyleInput}
         >
-          <StyledButton variant="contained" className={classes.submitButton} type="search" color="primary" size="small">
+          <StyledButton variant="contained" className={classes.submitButton} type="submit" color="primary" size="small">
         Check
           </StyledButton>
         </Link>

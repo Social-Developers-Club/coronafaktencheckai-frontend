@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center"
   },
-  footer_text: {
+  footerText: {
     fontSize: '1em',
     color: colors.darkColor,
     backgroundColor: 'white',
@@ -21,12 +21,12 @@ const useStyles = makeStyles(theme => ({
     display: 'inline-block',
     verticalAlign: 'middle'
   },
-  footer_link: {
+  footerLink: {
     color: colors.darkColor,
     textDecoration: 'none',
     marginLeft: '30px'
   },
-  footer_imageSize: {
+  footerImageSize: {
     width: '40px',
     height: 'auto',
     margin: '10px'
@@ -38,12 +38,12 @@ export const Footer = () => {
 
   return (
     <footer className={classes.footer}>
-        <img className={classes.footer_imageSize} src={Logo} alt="coronafaktenchecker" position="static" />
-        <Typography variant="h1" className={classes.footer_text}>
+        <img className={classes.footerImageSize} src={Logo} alt="coronafaktenchecker" position="static" />
+        <Typography variant="h1" className={classes.footerText}>
           CoronaFaktenCheck 2020. 
-          <a className={classes.footer_link} href="./impressum.html">Impressum</a>
-          <a className={classes.footer_link} href="./datenschutz.html">Datenschutzerklärung</a>
-          <a className={classes.footer_link} href="mailto:coronafaktencheck.de">Kontakt</a>
+          <a className={classes.footerLink} href="./impressum.html">Impressum</a>
+          <a className={classes.footerLink} href="./datenschutz.html">Datenschutzerklärung</a>
+          <a className={classes.footerLink} href="mailto:coronafaktencheck.de">Kontakt</a>
         </Typography>
     </footer>
   );

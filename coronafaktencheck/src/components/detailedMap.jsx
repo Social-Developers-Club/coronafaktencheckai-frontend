@@ -18,7 +18,7 @@ const formatPercentage = ((num)=> (num * 100).toFixed(2));
 //Map component
 export const DetailedMap = () => {
 
-mapboxgl.accessToken = AccesTokenMapBox;
+  mapboxgl.accessToken = AccesTokenMapBox;
 
   const formatGeoLocation = (locationCoordinates => {
     return(
@@ -38,45 +38,45 @@ mapboxgl.accessToken = AccesTokenMapBox;
   // console.log([mapData.lat, mapData.lng]);
 
   useEffect(() => {
-  const initializeMap = ({ setMap, mapContainer }) => {
-    const map = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: 'mapbox://styles/binicodes/ck81trptb122y1iqsw95p78j0/draft', // stylesheet location
-      center: [ mapData.lng , mapData.lat],
-      zoom: mapData.zoom
-    });
+    const initializeMap = ({ setMap, mapContainer }) => {
+      const map = new mapboxgl.Map({
+        container: mapContainer.current,
+        style: 'mapbox://styles/binicodes/ck81trptb122y1iqsw95p78j0/draft', // stylesheet location
+        center: [ mapData.lng , mapData.lat],
+        zoom: mapData.zoom
+      });
 
-    map.on("load", () => {
-      setMap(map);
-      map.resize();
-      map.addControl(new mapboxgl.NavigationControl());
-    
-      const locations = 
-        {
-          type: 'FeatureCollection',
-          features: fakeNewsData.map(fakeNews => {
-            return{
-              type:"Feature",
-              properties: {
-                description:`
-                <h2>Fake News:</h2>
-                <h3><q>${fakeNews.text}</q></h3>
-                <p>Es handelt sich hierbei zu <b style="color: #ff9046"> ${formatPercentage(fakeNews.classification.fake)} % </b> um Fake News</p>
-                `    
+      map.on("load", () => {
+        setMap(map);
+        map.resize();
+        map.addControl(new mapboxgl.NavigationControl());
+      
+        const locations = 
+          {
+            type: 'FeatureCollection',
+            features: fakeNewsData.map(fakeNews => {
+              return{
+                type:"Feature",
+                properties: {
+                  description:`
+                  <h2>Fake News:</h2>
+                  <h3><q>${fakeNews.text}</q></h3>
+                  <p>Es handelt sich hierbei zu <b style="color: #ff9046"> ${formatPercentage(fakeNews.classification.fake)} % </b> um Fake News</p>
+                  `    
+                  },
+                geometry: {
+                    type: 'Point',
+                    coordinates: formatGeoLocation(fakeNews.derived) 
                 },
-              geometry: {
-                  type: 'Point',
-                  coordinates: formatGeoLocation(fakeNews.derived) 
-              },
-            }
-          })
-        }
+              }
+            })
+          }
 
-      map.addSource('point', {
-          'type': 'geojson',
-          'data': locations
-        });
-         
+        map.addSource('point', {
+            'type': 'geojson',
+            'data': locations
+          });
+          
         map.addLayer({
         'id': 'point',
         'source': 'point',
@@ -104,29 +104,39 @@ mapboxgl.accessToken = AccesTokenMapBox;
           while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
           }
-          console.log(popup);
           
           popup
           .setLngLat(coordinates)
           .setHTML(description)
             // .setText()
-            .addTo(map);
+          .addTo(map);
         });
 
-          // Change the cursor to a pointer when the mouse is over the places layer.
-          map.on('mouseenter', 'point', function() {
-            map.getCanvas().style.cursor = 'pointer';
-            });
-  
-          // Change it back to a pointer when it leaves.
-          map.on('mouseleave', 'point', function() {
-            map.getCanvas().style.cursor = '';
-            popup.remove();
+        // Change the cursor to a pointer when the mouse is over the places layer.
+        map.on('mouseenter', 'point', function() {
+          map.getCanvas().style.cursor = 'pointer';
           });
-    })
-}  
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'point', function() {
+          map.getCanvas().style.cursor = '';
+          popup.remove();
+        });
+
+        // Disable default scrollZoom on map
+        const disableMapZoom = () => {
+          map.scrollZoom.disable();
+        }
+        disableMapZoom();
+
+        // Toggle scrollZoom with click event
+        map.on('click', () => {
+          (!map.scrollZoom.isEnabled()) ? map.scrollZoom.enable() : disableMapZoom();
+        });
+      })
+    }  
   if (!map) initializeMap({ setMap, mapContainer });
-}, [map]);
+  }, [map]);
 
   return (
        <div ref={el => (mapContainer.current = el)} style={styles} />
